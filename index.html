@@ -163,7 +163,10 @@
   .btn:hover { background: var(--navy); transform: translateY(-2px); }
 
   .hero-art { position: relative; }
-  .hero-art svg { width: 100%; height: auto; display: block; }
+  .hero-art img {
+    width: 100%; height: 320px; object-fit: cover; display: block;
+    border-radius: 16px; box-shadow: var(--shadow);
+  }
 
   /* ---------- Generic sections ---------- */
   section { padding: 64px 0; position: relative; }
@@ -178,7 +181,14 @@
     align-items: center;
   }
   .about-frame { display: flex; justify-content: center; }
-  .about-frame svg { width: 220px; height: 220px; }
+  .about-frame .frame-ring {
+    position: relative; width: 220px; height: 220px;
+  }
+  .about-frame .frame-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .about-frame img {
+    position: absolute; top: 14px; left: 14px; width: 192px; height: 192px;
+    border-radius: 50%; object-fit: cover; box-shadow: var(--shadow);
+  }
 
   .badges {
     display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px;
@@ -321,7 +331,8 @@
   @media (max-width: 760px) {
     .hero-grid, .about-grid { grid-template-columns: 1fr; }
     .about-frame { order: -1; }
-    .about-frame svg { width: 160px; height: 160px; }
+    .about-frame .frame-ring { width: 160px; height: 160px; }
+    .about-frame img { width: 132px; height: 132px; top: 12px; left: 12px; }
     .agreements-grid, .workshops-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; gap: 30px; }
     .timeline::before { display: none; }
@@ -388,63 +399,11 @@
       <p class="sub">Specializing in healthcare and trauma life coaching, guided by the Four Agreements, with workplace wellbeing consulting for businesses and organizations.</p>
       <a class="btn" href="#contact">Book a Free Consultation</a>
     </div>
-    <div class="hero-art reveal" aria-hidden="true">
-      <svg viewBox="0 0 480 360">
-        <ellipse cx="240" cy="330" rx="230" ry="26" fill="var(--sage-deep)" opacity="0.18"/>
-
-        <!-- flower 1 -->
-        <g transform="translate(120,150) scale(0.85)">
-          <path d="M0,0 C-8,45 8,80 0,125" stroke="var(--sage-deep)" stroke-width="5" fill="none"/>
-          <ellipse cx="-16" cy="70" rx="16" ry="7" fill="var(--sage-deep)" transform="rotate(-25 -16 70)"/>
-          <ellipse cx="14" cy="95" rx="15" ry="6" fill="var(--sage-deep)" transform="rotate(20 14 95)"/>
-          <g fill="var(--marigold)">
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(0 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(45 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(90 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(135 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(180 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(225 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(270 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(315 0 0)"/>
-          </g>
-          <circle cx="0" cy="0" r="13" fill="var(--olive)"/>
-        </g>
-
-        <!-- flower 2 (largest, front) -->
-        <g transform="translate(250,190) scale(1.15)">
-          <path d="M0,0 C10,50 -10,90 0,140" stroke="var(--sage-deep)" stroke-width="6" fill="none"/>
-          <ellipse cx="18" cy="75" rx="18" ry="8" fill="var(--sage-deep)" transform="rotate(20 18 75)"/>
-          <ellipse cx="-16" cy="105" rx="17" ry="7" fill="var(--sage-deep)" transform="rotate(-20 -16 105)"/>
-          <g fill="var(--marigold)">
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(0 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(45 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(90 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(135 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(180 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(225 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(270 0 0)"/>
-            <ellipse cx="0" cy="-16" rx="9" ry="18" transform="rotate(315 0 0)"/>
-          </g>
-          <circle cx="0" cy="0" r="15" fill="var(--olive)"/>
-        </g>
-
-        <!-- flower 3 -->
-        <g transform="translate(355,165) scale(0.75)">
-          <path d="M0,0 C-8,40 6,75 0,115" stroke="var(--sage-deep)" stroke-width="5" fill="none"/>
-          <ellipse cx="-15" cy="60" rx="15" ry="6" fill="var(--sage-deep)" transform="rotate(-25 -15 60)"/>
-          <g fill="var(--marigold)">
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(0 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(45 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(90 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(135 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(180 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(225 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(270 0 0)"/>
-            <ellipse cx="0" cy="-14" rx="8" ry="16" transform="rotate(315 0 0)"/>
-          </g>
-          <circle cx="0" cy="0" r="13" fill="var(--olive)"/>
-        </g>
-      </svg>
+    <div class="hero-art reveal">
+      <!-- Placeholder stock photo (Wikimedia Commons, public domain). Swap the src
+           for a real photo of Diane / her workshops whenever you have one. -->
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sunflowers_helianthus_annuus.jpg"
+           alt="A field of sunflowers in bloom">
     </div>
   </div>
   <div class="wave"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,70 900,-10 1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/></svg></div>
@@ -466,28 +425,16 @@
           <span class="badge">Order of the Red Cross, 2017</span>
         </div>
       </div>
-      <div class="about-frame reveal" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="92" fill="none" stroke="var(--marigold)" stroke-width="2" stroke-dasharray="6 8"/>
-          <circle cx="100" cy="100" r="72" fill="var(--sage)"/>
-          <g transform="translate(100,112)">
-            <g fill="var(--marigold)">
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(0 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(30 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(60 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(90 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(120 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(150 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(180 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(210 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(240 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(270 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(300 0 0)"/>
-              <ellipse cx="0" cy="-16" rx="9" ry="20" transform="rotate(330 0 0)"/>
-            </g>
-            <circle cx="0" cy="0" r="17" fill="var(--olive)"/>
-          </g>
-        </svg>
+      <div class="about-frame reveal">
+        <div class="frame-ring">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <circle cx="110" cy="110" r="105" fill="none" stroke="var(--marigold)" stroke-width="2" stroke-dasharray="6 8"/>
+          </svg>
+          <!-- Placeholder stock photo (Unsplash, free license). Swap the src for
+               Diane's real headshot whenever you have one. -->
+          <img src="https://images.unsplash.com/photo-1745434159123-4908d0b9df94?auto=format&amp;fit=crop&amp;w=400&amp;q=80"
+               alt="Placeholder portrait photo — swap for Diane's real headshot">
+        </div>
       </div>
     </div>
   </div>
